@@ -9,16 +9,25 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build and Test') {
             steps {
-                bat 'mvn -B clean package'
+                bat 'mvnw.cmd -B clean verify'
             }
         }
 
-        stage('Test') {
+        stage('Verify JAR') {
             steps {
-                bat 'mvn test'
+                bat 'dir target\\*.jar'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and tests completed successfully.'
+        }
+        failure {
+            echo 'Build failed. Check the console output.'
         }
     }
 }
