@@ -32,7 +32,7 @@ stage('Test EC2 SSH') {
             )
         ]) {
             bat '''
-                ssh -i "%EC2_KEY%" -o StrictHostKeyChecking=accept-new -o BatchMode=yes %EC2_USER%@16.170.215.201 "echo SSH_CONNECTION_SUCCESS"
+                ssh -i "%ec2-deploy_key%" -o StrictHostKeyChecking=accept-new -o BatchMode=yes %EC2_USER%@16.170.215.201 "echo SSH_CONNECTION_SUCCESS"
             '''
         }
     }
