@@ -28,7 +28,7 @@ stage('Test EC2 SSH') {
             sshUserPrivateKey(
                 credentialsId: 'ec2-deploy-key',
                 keyFileVariable: 'EC2_KEY',
-                usernameVariable: 'EC2_USER'
+                usernameVariable: 'ec2_user'
             )
         ]) {
             bat '''
